@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import 'rxjs';
+import { tap } from 'rxjs';
 
 
 
@@ -15,7 +16,10 @@ export class ProductService {
   constructor(private _http: HttpClient) { }
 
   getAlbum(id: number) {
-    return this._http.get(this._albumUrl);
+    return this._http.get(this._albumUrl).pipe(
+      tap(data=> console.log('All: ', JSON.stringify(data))),
+      
+    )
   }
   
 }
