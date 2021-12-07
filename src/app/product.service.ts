@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import 'rxjs';
+
 
 
 @Injectable({
@@ -10,10 +12,10 @@ export class ProductService {
 
   private _albumUrl = '../assets/album.json';
 
-  constructor(private http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
   getAlbum(id: number) {
-    return this.http.get(this._albumUrl)
+    return this._http.get(this._albumUrl);
   }
   
 }
