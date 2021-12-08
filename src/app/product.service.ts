@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs';
 import { Observable, tap } from 'rxjs';
 import { Album } from './album';
+import { Product } from './product';
 
 
 
@@ -13,6 +14,7 @@ import { Album } from './album';
 export class ProductService {
 
   private _albumUrl = '../assets/album.json';
+  private _productsUrl = '../assets/products.json';
 
   constructor(private _http: HttpClient) { }
 
@@ -22,6 +24,10 @@ export class ProductService {
       tap(data=> console.log('All: ', JSON.stringify(data))),
       
     )
+  }
+
+  getProducts() {
+    return this._http.get(this._productsUrl).pipe()
   }
   
 }
