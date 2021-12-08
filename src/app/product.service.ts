@@ -17,6 +17,7 @@ export class ProductService {
   constructor(private _http: HttpClient) { }
 
   getAlbum(id: number): Observable<Album> {
+    
     return this._http.get<Album>(this._albumUrl).pipe(
       tap(data=> console.log('All: ', JSON.stringify(data))),
       
