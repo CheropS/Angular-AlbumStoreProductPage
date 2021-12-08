@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import 'rxjs';
 import { tap } from 'rxjs';
+import { Album } from './album';
 
 
 
